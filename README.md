@@ -17,3 +17,14 @@ Actual: Lora font fails to load, 404 error is shown from stderr of dev server:
 ```
 Not found: /_fonts/c_DSuNEM0CpwGm0nBvjzlSOr1XfKIEkPNUFNOhh_1P0-NRhFW74EONtAcgszUyhCXAKYSyy3UIWLEug_n4MLLDw.woff
 ```
+
+## Code of Interest
+
+Font is loaded at [src/routes/+page.svelte](./src/routes/+page.svelte):
+
+```css
+main {
+    font-family: Lora, serif;
+}
+```
+

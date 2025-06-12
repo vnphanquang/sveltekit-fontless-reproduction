@@ -5,6 +5,6 @@
 
 <style>
 	main {
-		font-family: Lora, sans-serif;
+		font-family: Lora, serif;
 	}
 </style>
