@@ -18,6 +18,21 @@ Actual: Lora font fails to load, 404 error is shown from stderr of dev server:
 Not found: /_fonts/c_DSuNEM0CpwGm0nBvjzlSOr1XfKIEkPNUFNOhh_1P0-NRhFW74EONtAcgszUyhCXAKYSyy3UIWLEug_n4MLLDw.woff
 ```
 
+## Further Discussion
+
+The `_fonts` directory does get created in build output (`pnpm build`), but it goes into the wrong place.
+
+```
+.svelte-kit/output/
+    _fonts/ <-- where it is created
+    client/
+        _fonts/ <-- where it should have been
+    server/
+```
+
+So perhaps I suspect this has something to do with Vite environments. As the time of this writing, I believe
+SvelteKit builds 2 bundles, one for client (`client` environment) and one for server (`ssr` environment).
+
 ## Code of Interest
 
 Font is loaded at [src/routes/+page.svelte](./src/routes/+page.svelte):
