@@ -1,38 +1,19 @@
-# sv
+# Reproduction: Fontless Integration in SvelteKit App
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a reproduction to show that [fontless](https://github.com/unjs/fontaine/tree/main/packages/fontless) 
+currently does not work in SvelteKit app.
 
-## Creating a project
+## Steps to Reproduce
 
-If you're seeing this, you've probably already done this step. Congrats!
+1. clone the repository,
+2. install dependencies (`pnpm install`),
+3. run the development server (`pnpm dev`),
+4. navigate to browser dev site (likely `http://localhost:5173/`, but see stdout from (3) for exact port),
 
-```bash
-# create a new project in the current directory
-npx sv create
+Expected: texts should be rendered with `Lora` font.
 
-# create a new project in my-app
-npx sv create my-app
+Actual: Lora font fails to load, 404 error is shown from stderr of dev server:
+
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Not found: /_fonts/c_DSuNEM0CpwGm0nBvjzlSOr1XfKIEkPNUFNOhh_1P0-NRhFW74EONtAcgszUyhCXAKYSyy3UIWLEug_n4MLLDw.woff
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
